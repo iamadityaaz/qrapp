@@ -18,10 +18,12 @@ import axios from 'axios';
 export default class ScanScreen extends Component {
   state = {
     isDialogVisible: false,
+    qrValue: '',
   };
   onSuccess = e => {
     this.setState({
       isDialogVisible: true,
+      qrValue: e.data,
     });
   };
   render() {
@@ -35,6 +37,7 @@ export default class ScanScreen extends Component {
           submitInput={async inputText => {
             const {data} = await axios.post('data/add', {
               value: inputText,
+              qrValue: this.state.qrValue,
             });
 
             this.setState({

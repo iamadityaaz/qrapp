@@ -8,6 +8,7 @@ import {
   Linking,
   Alert,
   FlatList,
+  View,
 } from 'react-native';
 
 import axios from 'axios';
@@ -41,9 +42,12 @@ export default class HistoryScreen extends Component {
         data={this.state.data}
         renderItem={({item, index}) => {
           return (
-            <Text key={index.toString()} style={{marginVertical: 4}}>
-              {item.inputString}
-            </Text>
+            <View style={{marginVertical: 4, marginHorizontal: 4}}>
+              <Text key={index.toString()}>
+                {'Your Input : ' + item.inputString}
+              </Text>
+              <Text key={index.toString()}>{'QR Value : ' + item.qrValue}</Text>
+            </View>
           );
         }}
       />

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import 'react-native-get-random-values';
 
 import {
   AppRegistry,
@@ -11,6 +12,7 @@ import {
 } from 'react-native';
 import Modal from 'react-native-modal';
 import Generate from '../Components/Generate';
+import uuid from 'react-native-uuid';
 
 export default class HomeScreen extends Component {
   state = {
@@ -21,7 +23,7 @@ export default class HomeScreen extends Component {
 
   generateQR = () => {
     this.setState({
-      qrValue: 'Helloworld',
+      qrValue: uuid.v4(),
     });
   };
 
